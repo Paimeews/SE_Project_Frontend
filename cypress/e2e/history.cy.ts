@@ -1,0 +1,16 @@
+describe('history', () => {
+  it('passes', () => {
+    cy.visit('/api/auth/signin')
+    cy.wait(4000)
+    cy.get('input[id="input-email-for-credentials-provider"]').type("search@gmail.com")
+    cy.get('input[id="input-password-for-credentials-provider"]').type("12345678")
+    cy.wait(4000)
+    cy.get('button[type="submit"]').click()
+    cy.visit('/campground')
+    cy.wait(6000)
+    cy.get('input[id="searchText"]').type("test1")
+    cy.wait(4000)
+    cy.get('button[id="searchButton"]').click()
+    cy.wait(8000)
+  })
+})
